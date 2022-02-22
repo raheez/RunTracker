@@ -17,11 +17,41 @@ android {
     }
 
     buildTypes {
+
+        flavorDimensions "dev"
+
+        productFlavors {
+            free {
+                dimension "dev"
+                applicationIdSuffix ".free"
+                versionNameSuffix ".free"
+            }
+            paid {
+                dimension "dev"
+                applicationIdSuffix ".paid"
+                versionNameSuffix ".paid"
+            }
+        }
+
         release {
-            minifyEnabled false
+            initWith debug
+            versionNameSuffix  ".release"
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
+
+        customDebug{
+            initWith debug
+            versionNameSuffix  ".customDebug"
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+
+
+
     }
+    buildFeatures{
+        viewBinding true
+    }
+
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
