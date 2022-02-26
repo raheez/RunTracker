@@ -43,7 +43,6 @@ android {
             initWith debug
             applicationIdSuffix ".customDebug"
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
-
         }
     }
 
