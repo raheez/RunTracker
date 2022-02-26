@@ -16,38 +16,37 @@ android {
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
-    buildTypes {
+    flavorDimensions "dev"
 
-        flavorDimensions "dev"
-
-        productFlavors {
-            free {
-                dimension "dev"
-                applicationIdSuffix ".free"
-                versionNameSuffix ".free"
-            }
-            paid {
-                dimension "dev"
-                applicationIdSuffix ".paid"
-                versionNameSuffix ".paid"
-            }
+    productFlavors{
+        free{
+            dimension "dev"
+            applicationIdSuffix ".free"
         }
+
+        paid{
+            dimension "dev"
+            applicationIdSuffix ".paid"
+        }
+    }
+
+    buildTypes {
 
         release {
             initWith debug
-            versionNameSuffix  ".release"
+            debuggable false
+            applicationIdSuffix ".release"
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
 
         customDebug{
             initWith debug
-            versionNameSuffix  ".customDebug"
+            applicationIdSuffix ".customDebug"
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+
         }
-
-
-
     }
+
     buildFeatures{
         viewBinding true
     }
